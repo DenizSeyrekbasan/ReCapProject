@@ -1,5 +1,8 @@
 ﻿using Business.Abstract;
+using Business.Constans;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,15 +14,53 @@ namespace Business.Concrete
 {
     public class BrandManager : IBrandService
     {
-        IBrandDal _brandDal;
+        //IBrandDal _brandDal;
 
+        //public BrandManager(IBrandDal brandDal)
+        //{
+        //    _brandDal = brandDal;
+        //}
+        //public IDataResult<List<Brand>> GetAll()
+        //{
+        //    if (DateTime.Now.Hour == 12)
+        //    {
+        //        return new SuccessDataResult<List<Brand>>(Messages.MaintenanceTime);
+        //    }
+
+        //    return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(),Messages.CarsListed);
+        //}
+
+        IBrandDal _brandDal;
         public BrandManager(IBrandDal brandDal)
         {
             _brandDal = brandDal;
         }
-        public List<Brand> GetAll()
+        public IResult Add(Brand brand)
         {
-            return _brandDal.GetAll();
+            _brandDal.Add(brand);
+            return new SuccessResult(Messages.BrandAdded);
+        }
+
+        public IResult Delete(Brand brand)
+        {
+            _brandDal.Delete(brand);
+            return new SuccessResult(Messages.BrandDeleted);
+        }
+
+        public IDataResult<List<Brand>> GetAll()
+        {
+            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(), Messages.BrandListed);
+        }
+
+        public IDataResult<List<Brand>> GetAllById(int BrandId)
+        {
+            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(p => p.Id == BrandId));
+        }
+
+        public IResult Update(Brand brand)
+        {
+            _brandDal.Update(brand);
+            return new SuccessResult(Messages.BrandUpdated);
         }
     }
 }

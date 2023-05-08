@@ -22,7 +22,7 @@ namespace Core.DataAccess.EntityFramework
                 addedEntity.State = EntityState.Added;
                 context.SaveChanges();
             }
-            //using nesnesi kullanildiktan sonra bellekten atilir
+            //using nesnesi; kullanildiktan sonra bellekten atilir
         }
 
         public void Delete(TEntity entity)
