@@ -16,10 +16,10 @@ namespace DataAccess.Concrete.InMemory
         public InMemoryCarDal()
         {
             _cars = new List<Car> {
-            new Car{Id = 1,BrandId = 1,Description="ikinci el",ModelYear = "2015"},
-            new Car{Id = 2,BrandId = 1,Description="sifir",ModelYear = "2017"},
-            new Car{Id = 3,BrandId = 2,Description="ikinci el",ModelYear = "2019"},
-            new Car{Id = 4,BrandId = 3,Description="sifir",ModelYear = "2008"},
+            new Car{Id = 1,BrandId = 1,Description="ikinci el",ModelYear = 2015},
+            new Car{Id = 2,BrandId = 1,Description="sifir",ModelYear = 2017},
+            new Car{Id = 3,BrandId = 2,Description="ikinci el",ModelYear = 2019},
+            new Car{Id = 4,BrandId = 3,Description="sifir",ModelYear = 2008},
             };
         }
         public void Add(Car car)

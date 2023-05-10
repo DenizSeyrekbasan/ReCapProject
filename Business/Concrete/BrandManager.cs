@@ -52,7 +52,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(), Messages.BrandListed);
         }
 
-        public IDataResult<List<Brand>> GetAllById(int BrandId)
+        public IDataResult<List<Brand>> GetById(int BrandId)
         {
             return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(p => p.Id == BrandId));
         }

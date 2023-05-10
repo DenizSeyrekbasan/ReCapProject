@@ -50,8 +50,9 @@ namespace Business.Concrete
 
         public IDataResult<List<Color>> GetById(int colorId)
         {
-            return new SuccessDataResult<List<Color>>(_colorDal.GetAll(p => p.Id == colorId).ToList());           
+            return new SuccessDataResult<List<Color>>(_colorDal.GetAll(p => p.Id == colorId).ToList());
         }
+        
 
         public IResult Update(Color color)
         {

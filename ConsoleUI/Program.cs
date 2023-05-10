@@ -13,7 +13,7 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             BrandManager brandManager = new BrandManager(new EfBrandDal());
-            brandManager.Add(new Brand { Name = "Jaguar" });
+            //brandManager.Add(new Brand { Name = "Jaguar" });
             
 
             Console.Read();
